@@ -1,0 +1,79 @@
+syntax = "proto3";
+
+package server.account.interface;
+
+option go_package = "api/server/account/interface;interface";
+
+import "google/api/annotations.proto";
+
+// Account interface
+service AccountInterface {
+  // Connection test
+  rpc DevPing (DevPingRequest) returns (DevPingResponse) {
+    option (google.api.http) = {
+      get: "/v1/dev/ping"
+    };
+  }
+
+  // Register
+  rpc Register (RegisterRequest) returns (RegisterResponse) {
+    option (google.api.http) = {
+      post: "/v1/register"
+      body: "*"
+    };
+  }
+  // Login
+  rpc Login (LoginRequest) returns (LoginResponse) {
+    option (google.api.http) = {
+      post: "/v1/login"
+      body: "*"
+    };
+  }
+
+}
+
+message DevPingRequest {
+  string message = 1;
+}
+
+message DevPingResponse {
+  string message = 1;
+  string time = 2;
+}
+
+message RegisterRequest {
+  string name = 1; 
+  string password = 2; 
+}
+
+message RegisterResponse {
+  Code code = 1; // Response code
+  enum Code {
+    CODE_ERR_UNSPECIFIED = 0; 
+    CODE_SUCCESS = 1; 
+    CODE_ERR_CREATED = 2; 
+    CODE_ERR_NAME = 3;
+    CODE_ERR_PWD = 4;
+  }
+
+  string account_id = 2; 
+  string session = 3;
+}
+
+message LoginRequest {
+  string name = 1;
+  string password = 2;
+}
+
+message LoginResponse {
+  Code code = 1; // Response code
+  enum Code {
+    CODE_ERR_UNSPECIFIED = 0;
+    CODE_SUCCESS = 1; 
+    CODE_ERR_ACCOUNT = 2; 
+    CODE_ERR_PASSWORD = 3;
+  }
+
+  string account_id = 2;
+  string session = 3; 
+}
