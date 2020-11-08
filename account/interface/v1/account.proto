@@ -1,8 +1,8 @@
 syntax = "proto3";
 
-package server.account.interface;
+package server.account.interface.v1;
 
-option go_package = "api/server/account/interface;interface";
+option go_package = "api/server/account/interface/v1;interfacev1";
 
 import "google/api/annotations.proto";
 
@@ -42,6 +42,30 @@ service AccountInterface {
   rpc Token (TokenRequest) returns (TokenResponse) {
     option (google.api.http) = {
       post: "/v1/token"
+      body: "*"
+    };
+  }
+
+  // Apple login
+  rpc AppleLogin (AppleLoginRequest) returns (AppleLoginResponse) {
+    option (google.api.http) = {
+      post: "/v1/apple/login"
+      body: "*"
+    };
+  }
+
+  // Apple login callback
+  rpc AppleLoginCallback (AppleLoginCallbackRequest) returns (AppleLoginCallbackResponse) {
+    option (google.api.http) = {
+      post: "/v1/apple/login/callback"
+      body: "*"
+    };
+  }
+
+  // Google login
+  rpc GoogleLogin (GoogleLoginRequest) returns (GoogleLoginResponse) {
+    option (google.api.http) = {
+      post: "/v1/google/login"
       body: "*"
     };
   }
@@ -147,6 +171,77 @@ message Session {
   int64 account_id = 1;
   int64 timeout = 2; // timeout (unix timestamp)
   string key = 3;
+}
+
+message AppleLoginRequest {
+  string token = 1; // Apple token
+  string apple_id = 2;
+  string code = 3;
+  string color = 4;
+}
+
+message AppleLoginResponse {
+  Code code = 1; // Response code
+  enum Code {
+    CODE_ERR_UNSPECIFIED = 0; // Please try again later
+    CODE_SUCCESS = 1; // Success
+    CODE_ERR_TOKEN = 2; // Token error
+    CODE_ERR_APPLE_ID = 3; // Apple ID error
+  }
+
+  LoginInfo info = 2; // Login information
+}
+
+
+message AppleLoginCallbackRequest {
+  message User {
+    string email = 1;
+    message Name {
+      string first_name = 1;
+      string last_name = 2;
+    }
+    Name name = 2;
+  }
+
+  string code = 1;
+  string id_token = 2;
+  string state = 3;
+  string user = 4;
+  string error = 5;
+}
+
+message AppleLoginCallbackResponse {
+  Code code = 1; // Response code
+  enum Code {
+    CODE_ERR_UNSPECIFIED = 0; // Other errors
+    CODE_ERR_TOKEN = 2; // Token verification error
+    CODE_ERR_CODE = 3; // Code verification error
+    CODE_ERR_PARAM = 4; // Apple parameter error
+    CODE_ERR_APPLE = 6; // Apple callback error
+  }
+}
+
+
+message GoogleLoginRequest {
+  string token = 1; // Google token
+  string color = 2;
+}
+
+message GoogleLoginResponse {
+  Code code = 1; // Response code
+  enum Code {
+    CODE_ERR_UNSPECIFIED = 0; // Please try again later
+    CODE_SUCCESS = 1; // Success
+    CODE_ERR_TOKEN = 2; // Token error
+  }
+
+  LoginInfo info = 2; // Login information
+}
+
+message AppleId {
+  string apple_id = 1;
+  string state = 2;
+  int64 t = 3;
 }
 
 message LoginInfo {
