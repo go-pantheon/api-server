@@ -1,8 +1,8 @@
 syntax = "proto3";
 
-package server.gate;
+package server.gate.intra.v1;
 
-option go_package = "api/server/gate;gate";
+option go_package = "api/server/gate/intra/v1;intrav1";
 
 // only for server use
 // The client will receive []byte(AuthToken) data from the /login interface of the Account service, and then carry it in the handshake message
