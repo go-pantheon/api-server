@@ -70,6 +70,14 @@ service AccountInterface {
     };
   }
 
+  // Facebook login
+  rpc FacebookLogin (FacebookLoginRequest) returns (FacebookLoginResponse) {
+    option (google.api.http) = {
+      post: "/v1/fb/login"
+      body: "*"
+    };
+  }
+
 }
 
 message DevPingRequest {
@@ -228,6 +236,24 @@ message GoogleLoginRequest {
 }
 
 message GoogleLoginResponse {
+  Code code = 1; // Response code
+  enum Code {
+    CODE_ERR_UNSPECIFIED = 0; // Please try again later
+    CODE_SUCCESS = 1; // Success
+    CODE_ERR_TOKEN = 2; // Token error
+  }
+
+  LoginInfo info = 2; // Login information
+}
+
+
+
+message FacebookLoginRequest {
+  string token = 1; // Facebook access_token
+  string color = 2;
+}
+
+message FacebookLoginResponse {
   Code code = 1; // Response code
   enum Code {
     CODE_ERR_UNSPECIFIED = 0; // Please try again later
