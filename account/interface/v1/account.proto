@@ -6,7 +6,7 @@ option go_package = "api/server/account/interface/v1;interfacev1";
 
 import "google/api/annotations.proto";
 
-// Account service
+// Account interface
 // Open to public network
 // Provide HTTP and gRPC interfaces
 service AccountInterface {

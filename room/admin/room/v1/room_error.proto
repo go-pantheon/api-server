@@ -1,0 +1,15 @@
+syntax = "proto3";
+
+package server.guild.admin.guild.v1;
+
+import "errors/errors.proto";
+
+option go_package = "api/guild/admin/guild/v1;adminv1";
+
+enum GuildAdminErrorReason {
+	option (errors.default_code) = 500;
+
+	GUILD_ADMIN_ERROR_REASON_UNSPECIFIED = 0 [(errors.code) = 500];
+	GUILD_ADMIN_ERROR_REASON_SERVER = 1 [(errors.code) = 500];
+	GUILD_ADMIN_ERROR_REASON_SERVER_ID = 2 [(errors.code) = 401];
+}
