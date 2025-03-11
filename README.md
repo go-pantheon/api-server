@@ -1,10 +1,10 @@
-# Vulcan Frame
+# go-pantheon
 
-**Vulcan Frame** is a production-ready game server framework designed for building high-performance, highly available game server clusters using microservices architecture.
+**go-pantheon** is a production-ready game server framework designed for building high-performance, highly available game server clusters using microservices architecture.
 
-# Vulcan API Server
+# api-server
 
-**vulcan-api-server** defines the API protocol for server clusters using Protocol Buffer IDL, following [Kratos API Definition](https://go-kratos.dev/docs/component/api/) standards.
+**api-server** defines the API protocol for server clusters using Protocol Buffer IDL, following [Kratos API Definition](https://go-kratos.dev/docs/component/api/) standards.
 
 ## Features
 
@@ -16,7 +16,7 @@
 
 ## Code Generation
 
-vulcan-api-server will be introduced as a submodule in projects like vulcan-gate and vulcan-game, and the projects will provide tools to generate the corresponding code.
+api-server will be introduced as a submodule in projects like janus(gateway) and roma(game server), and the projects will provide tools to generate the corresponding code.
 
 ## Contributing
 
