@@ -2,6 +2,7 @@
 *
 
 # cancel ignore .proto file
+!.editorconfig
 !.gitignore
 !*.proto
 !*.md
