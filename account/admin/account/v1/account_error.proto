@@ -1,6 +1,6 @@
 syntax = "proto3";
 
-package server.account.admin.account.v1;
+package account.admin.account.v1;
 
 import "errors/errors.proto";
 

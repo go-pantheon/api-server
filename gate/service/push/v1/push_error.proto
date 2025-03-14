@@ -1,6 +1,6 @@
 syntax = "proto3";
 
-package server.gate.service.push.v1;
+package gate.service.push.v1;
 
 import "errors/errors.proto";
 

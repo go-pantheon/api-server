@@ -1,6 +1,6 @@
 syntax = "proto3";
 
-package server.gate.intra.v1;
+package gate.intra.v1;
 
 option go_package = "api/server/gate/intra/v1;intrav1";
 

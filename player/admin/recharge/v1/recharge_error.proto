@@ -1,6 +1,6 @@
 syntax = "proto3";
 
-package server.player.admin.recharge.v1;
+package player.admin.recharge.v1;
 
 import "errors/errors.proto";
 

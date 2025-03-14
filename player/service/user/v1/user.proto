@@ -1,6 +1,6 @@
 syntax = "proto3";
 
-package server.player.service.user.v1;
+package player.service.user.v1;
 
 import "google/api/annotations.proto";
 

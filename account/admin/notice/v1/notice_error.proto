@@ -1,6 +1,6 @@
 syntax = "proto3";
 
-package server.account.admin.notice.v1;
+package account.admin.notice.v1;
 
 import "errors/errors.proto";
 

@@ -1,10 +1,10 @@
 syntax = "proto3";
 
-package server.room.admin.room.v1;
+package room.admin.room.v1;
 
 import "google/api/annotations.proto";
 
-option go_package = "api/room/admin/room/v1;adminv1";
+option go_package = "api/server/room/admin/room/v1;adminv1";
 
 // Room admin service
 // Open to the server cluster

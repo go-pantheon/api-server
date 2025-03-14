@@ -1,6 +1,6 @@
 syntax = "proto3";
 
-package server.player.admin.gamedata.v1;
+package player.admin.gamedata.v1;
 
 option go_package = "api/server/player/admin/gamedata/v1;adminv1";
 

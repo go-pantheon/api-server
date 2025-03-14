@@ -1,6 +1,6 @@
 syntax = "proto3";
 
-package server.account.interface.v1;
+package account.interface.v1;
 
 option go_package = "api/server/account/interface/v1;interfacev1";
 
