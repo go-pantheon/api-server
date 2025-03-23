@@ -12,17 +12,17 @@ service TunnelService {
 }
 
 message TunnelRequest {
-  int32 mod = 1; // Module ID, globally unique
-  int32 seq = 2; // Module message ID, unique within the module
+  bytes data = 1; // Serialized bytes of the cs/sc protocol in the message
+  uint64 data_version = 2; // Data version number
   int64 obj = 3; // Module object ID, according to the business agreement to pass the corresponding object ID
-  bytes data = 4; // Serialized bytes of the cs/sc protocol in the message
-  uint64 data_version = 5; // Data version number
+  int32 mod = 4; // Module ID, globally unique
+  int32 seq = 5; // Module message ID, unique within the module
 }
 
 message TunnelResponse {
-  int32 mod = 1; // Module ID, globally unique
-  int32 seq = 2; // Module message ID, unique within the module
+  bytes data = 1; // Serialized bytes of the cs/sc protocol in the message
+  uint64 data_version = 2; // Data version number
   int64 obj = 3; // Module object ID, according to the business agreement to pass the corresponding object ID
-  bytes data = 4; // Serialized bytes of the cs/sc protocol in the message
-  uint64 data_version = 5; // Data version number
+  int32 mod = 4; // Module ID, globally unique
+  int32 seq = 5; // Module message ID, unique within the module
 }
