@@ -9,7 +9,7 @@ option go_package = "api/server/account/admin/notice/v1;adminv1";
 // Notice admin service
 // Open to the server cluster
 // Provide gRPC interfaces
-service NoticeAdminService {
+service NoticeAdmin {
 	// Query notice page list
 	rpc GetNoticeList (GetNoticeListRequest) returns (GetNoticeListResponse) {
 		option (google.api.http) = {

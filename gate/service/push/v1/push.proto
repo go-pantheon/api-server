@@ -53,8 +53,8 @@ message BroadcastResponse {
 }
 
 message PushBody {
-  int32 mod = 1; // Module ID, globally unique
-  int32 seq = 2; // Message ID within the module, unique within the module
-  int64 obj = 3; // Object ID, according to the business agreement
-  bytes data = 4; // Message body proto bytes array
+  bytes data = 1; // Message body proto bytes array
+  int64 obj = 2; // Object ID, according to the business agreement
+  int32 mod = 3; // Module ID, globally unique
+  int32 seq = 4; // Message ID within the module, unique within the module
 }
