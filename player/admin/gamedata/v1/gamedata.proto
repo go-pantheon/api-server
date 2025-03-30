@@ -27,11 +27,15 @@ message GetItemListResponse {
   string message = 2;
 
   repeated ItemDataProto items = 3;
+  repeated PackDataProto packs = 4;
 }
 
 message ItemDataProto {
   int64 id = 1;
   string name = 2;
-  int64 type = 3;
-  int64 type_value = 4;
+}
+
+message PackDataProto {
+  int64 id = 1;
+  string name = 2;
 }

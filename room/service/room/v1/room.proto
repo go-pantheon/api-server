@@ -1,0 +1,65 @@
+syntax = "proto3";
+
+package room.service.room.v1;
+
+import "google/api/annotations.proto";
+
+option go_package = "api/server/room/service/room/v1;servicev1";
+
+// Room service
+// Open to the server cluster
+// Provide HTTP and gRPC interfaces
+service RoomService {
+  // Get room data cache by id
+  rpc GetById (GetByIdRequest) returns (GetByIdResponse) {
+    option (google.api.http) = {
+      get: "/service/room/id"
+    };
+  };
+
+  // Get room data cache list by id list
+  rpc ListById (ListByIdRequest) returns (ListByIdResponse) {
+    option (google.api.http) = {
+      get: "/service/room/list/id"
+    };
+  };
+}
+
+message GetByIdRequest {
+  int64 id = 1;
+}
+
+message GetByIdResponse {
+  int32 code = 1;
+  string message = 2;
+
+  RoomCacheProto room = 3;
+}
+
+
+message ListByIdRequest {
+  repeated int64 id = 1;
+}
+
+message ListByIdResponse {
+  int32 code = 1;
+  string message = 2;
+
+  map<int64, RoomCacheProto> rooms = 3;
+}
+
+
+
+// ------------ Data structures ------------------
+
+message RoomCacheProto {
+  int64 id = 1;
+  string id_str = 2;
+  string account = 3;
+  string name = 4;
+  int64 created_time = 5;
+  int64 login_time = 6;
+  int64 last_online_time = 7;
+  string last_online_ip = 8;
+  string detail = 9;
+}
