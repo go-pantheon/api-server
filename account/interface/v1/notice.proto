@@ -25,7 +25,7 @@ message NoticeListResponse {
   Code code = 1; // Response code
   enum Code {
     CODE_ERR_UNSPECIFIED = 0; // Please try again later
-    CODE_SUCCESS = 1; // Success
+    CODE_SUCCEEDED = 1; // Succeeded
   }
   repeated Notice list = 2; // Notice list, up to 10 items
 }

@@ -99,7 +99,7 @@ message RegisterResponse {
   Code code = 1; // Response code
   enum Code {
     CODE_ERR_UNSPECIFIED = 0; // Please try again later
-    CODE_SUCCESS = 1; // Success
+    CODE_SUCCEEDED = 1; // Succeeded
     CODE_ERR_CREATED = 2; // Already registered
     CODE_ERR_NAME = 3; // Account name format error, temporarily length 6-18
     CODE_ERR_PWD = 4;  // Password format error, temporarily length 6-18
@@ -122,7 +122,7 @@ message LoginResponse {
   Code code = 1; // Response code
   enum Code {
     CODE_ERR_UNSPECIFIED = 0; // Please try again later
-    CODE_SUCCESS = 1; // Success
+    CODE_SUCCEEDED = 1; // Succeeded
     CODE_ERR_ACCOUNT = 2; // Account does not exist
     CODE_ERR_PASSWORD = 3; // Password error
   }
@@ -143,7 +143,7 @@ message RefreshResponse {
   Code code = 1; // Response code
   enum Code {
     CODE_ERR_UNSPECIFIED = 0; // Please try again later
-    CODE_SUCCESS = 1; // Success
+    CODE_SUCCEEDED = 1; // Succeeded
     CODE_ERR_ACCOUNT = 2; // Account does not exist
     CODE_ERR_SESSION_EXPIRED = 3; // Session expired
     CODE_ERR_SESSION_ILLEGAL = 4; // Session error
@@ -163,7 +163,7 @@ message TokenResponse {
   Code code = 1; // Response code
   enum Code {
     CODE_ERR_UNSPECIFIED = 0; // Please try again later
-    CODE_SUCCESS = 1; // Success
+    CODE_SUCCEEDED = 1; // Succeeded
     CODE_ERR_ACCOUNT = 2; // Account does not exist
     CODE_ERR_SESSION_EXPIRED = 3; // Session expired
     CODE_ERR_SESSION_ILLEGAL = 4; // Session error
@@ -192,7 +192,7 @@ message AppleLoginResponse {
   Code code = 1; // Response code
   enum Code {
     CODE_ERR_UNSPECIFIED = 0; // Please try again later
-    CODE_SUCCESS = 1; // Success
+    CODE_SUCCEEDED = 1; // Succeeded
     CODE_ERR_TOKEN = 2; // Token error
     CODE_ERR_APPLE_ID = 3; // Apple ID error
   }
@@ -239,7 +239,7 @@ message GoogleLoginResponse {
   Code code = 1; // Response code
   enum Code {
     CODE_ERR_UNSPECIFIED = 0; // Please try again later
-    CODE_SUCCESS = 1; // Success
+    CODE_SUCCEEDED = 1; // Succeeded
     CODE_ERR_TOKEN = 2; // Token error
   }
 
@@ -257,7 +257,7 @@ message FacebookLoginResponse {
   Code code = 1; // Response code
   enum Code {
     CODE_ERR_UNSPECIFIED = 0; // Please try again later
-    CODE_SUCCESS = 1; // Success
+    CODE_SUCCEEDED = 1; // Succeeded
     CODE_ERR_TOKEN = 2; // Token error
   }
 

@@ -18,8 +18,8 @@ message AuthToken {
 
 enum OnlineStatus {
   ONLINE_STATUS_UNSPECIFIED = 0; // Unspecified
-  ONLINE_STATUS_GATE = 1; // Request from Gate service, usually initiated by users
-  ONLINE_STATUS_ADMIN = 2; // Request from Admin service, usually initiated by internal GM
-  ONLINE_STATUS_DEV = 3; // Developer test use
-  ONLINE_STATUS_SVC = 4; // Request from other services, usually initiated by internal services
+  ONLINE_STATUS_GATE = 1; // Request from Gate service, usually initiated by users. It is not inner status.
+  ONLINE_STATUS_DEV = 2; // Developer test use. It is not inner status.
+  ONLINE_STATUS_ADMIN = 3; // Request from Admin service, usually initiated by internal GM. It is inner status.
+  ONLINE_STATUS_SVC = 4; // Request from other services, usually initiated by internal services. It is inner status.
 }
