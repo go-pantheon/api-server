@@ -1,8 +1,8 @@
 syntax = "proto3";
 
-package account.interface.v1;
+package account.interface.account.v1;
 
-option go_package = "api/server/account/interface/v1;interfacev1";
+option go_package = "api/server/account/interface/account/v1;v1";
 
 import "google/api/annotations.proto";
 
@@ -13,35 +13,35 @@ service AccountInterface {
   // Connection test
   rpc DevPing (DevPingRequest) returns (DevPingResponse) {
     option (google.api.http) = {
-      get: "/v1/dev/ping"
+      get: "/account/v1/dev/ping"
     };
   }
 
   // Register
   rpc Register (RegisterRequest) returns (RegisterResponse) {
     option (google.api.http) = {
-      post: "/v1/register"
+      post: "/account/v1/register"
       body: "*"
     };
   }
   // Login
   rpc Login (LoginRequest) returns (LoginResponse) {
     option (google.api.http) = {
-      post: "/v1/login"
+      post: "/account/v1/login"
       body: "*"
     };
   }
   // Session renewal
   rpc Refresh (RefreshRequest) returns (RefreshResponse) {
     option (google.api.http) = {
-      post: "/v1/refresh"
+      post: "/account/v1/refresh"
       body: "*"
     };
   }
   // Get TCP handshake token
   rpc Token (TokenRequest) returns (TokenResponse) {
     option (google.api.http) = {
-      post: "/v1/token"
+      post: "/account/v1/token"
       body: "*"
     };
   }
@@ -49,7 +49,7 @@ service AccountInterface {
   // Apple login
   rpc AppleLogin (AppleLoginRequest) returns (AppleLoginResponse) {
     option (google.api.http) = {
-      post: "/v1/apple/login"
+      post: "/account/v1/apple/login"
       body: "*"
     };
   }
@@ -57,7 +57,7 @@ service AccountInterface {
   // Apple login callback
   rpc AppleLoginCallback (AppleLoginCallbackRequest) returns (AppleLoginCallbackResponse) {
     option (google.api.http) = {
-      post: "/v1/apple/login/callback"
+      post: "/account/v1/apple/login/callback"
       body: "*"
     };
   }
@@ -65,7 +65,7 @@ service AccountInterface {
   // Google login
   rpc GoogleLogin (GoogleLoginRequest) returns (GoogleLoginResponse) {
     option (google.api.http) = {
-      post: "/v1/google/login"
+      post: "/account/v1/google/login"
       body: "*"
     };
   }
@@ -73,7 +73,7 @@ service AccountInterface {
   // Facebook login
   rpc FacebookLogin (FacebookLoginRequest) returns (FacebookLoginResponse) {
     option (google.api.http) = {
-      post: "/v1/fb/login"
+      post: "/account/v1/fb/login"
       body: "*"
     };
   }
