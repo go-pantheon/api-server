@@ -22,10 +22,7 @@ message GetByIdRequest {
 }
 
 message GetByIdResponse {
-	int32 code = 1;
-	string message = 2;
-
-	RoomProto item = 3;
+	RoomProto item = 1;
 }
 
 message RoomProto {

@@ -24,10 +24,7 @@ message AddItemRequest {
 }
 
 message AddItemResponse {
-  int32 code = 1;
-  string message = 2;
-
-  map<int64, uint64> items = 3; // item_id -> current_amount
+  map<int64, uint64> items = 1; // item_id -> current_amount
 }
 
 

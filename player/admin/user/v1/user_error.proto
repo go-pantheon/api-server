@@ -10,6 +10,4 @@ enum UserAdminErrorReason {
   option (errors.default_code) = 500;
 
   USER_ADMIN_ERROR_REASON_UNSPECIFIED = 0 [(errors.code) = 500];
-  USER_ADMIN_ERROR_REASON_SERVER = 1 [(errors.code) = 500];
-  USER_ADMIN_ERROR_REASON_ID = 2 [(errors.code) = 401];
 }
