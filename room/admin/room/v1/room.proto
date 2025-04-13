@@ -12,7 +12,7 @@ option go_package = "api/server/room/admin/room/v1;adminv1";
 service RoomAdmin {
 	rpc GetById (GetByIdRequest) returns (GetByIdResponse) {
 		option (google.api.http) = {
-			get: "/admin/room/id"
+			get: "/admin/rooms/{id}"
 		};
 	};
 }

@@ -14,7 +14,7 @@ service GamedataAdmin {
   // Query all configuration items
   rpc GetItemList (GetItemListRequest) returns (GetItemListResponse) {
     option (google.api.http) = {
-      get: "/admin/gamedata/item/list"
+      get: "/admin/gamedata/items/list"
     };
   };
 }

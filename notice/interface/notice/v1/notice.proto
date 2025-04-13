@@ -1,8 +1,8 @@
 syntax = "proto3";
 
-package account.interface.notice.v1;
+package notice.interface.notice.v1;
 
-option go_package = "api/server/account/interface/notice/v1;v1";
+option go_package = "api/server/notice/interface/notice/v1;interfacev1";
 
 import "google/api/annotations.proto";
 
@@ -13,7 +13,7 @@ service NoticeInterface {
   // Notice List
   rpc NoticeList (NoticeListRequest) returns (NoticeListResponse) {
     option (google.api.http) = {
-      get: "/notice/v1/list"
+      get: "/notices/v1/list"
     };
   }
 }

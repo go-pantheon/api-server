@@ -13,13 +13,13 @@ service UserAdmin {
 	// Query player list by page
 	rpc UserList (UserListRequest) returns (UserListResponse) {
 		option (google.api.http) = {
-			get: "/admin/user/list"
+			get: "/admin/users/list"
 		};
 	};
 	// Query player by id
 	rpc GetById (GetByIdRequest) returns (GetByIdResponse) {
 		option (google.api.http) = {
-			get: "/admin/user/id"
+			get: "/admin/users/{id}"
 		};
 	};
 

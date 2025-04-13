@@ -13,20 +13,20 @@ service RechargeAdmin {
 	// Query order list by page
 	rpc GetOrderList (GetOrderListRequest) returns (GetOrderListResponse) {
 		option (google.api.http) = {
-			get: "/admin/order/list"
+			get: "/admin/orders/list"
 		};
 	};
 	// Query order by id
 	rpc GetOrderById (GetOrderByIdRequest) returns (GetOrderByIdResponse) {
 		option (google.api.http) = {
-			get: "/admin/order/id"
+			get: "/admin/orders/{store}/{trans_id}"
 		};
 	};
 
 	// Update order confirmation status by id
 	rpc UpdateOrderAckStateById (UpdateOrderAckStateByIdRequest) returns (UpdateOrderAckStateByIdResponse) {
 		option (google.api.http) = {
-			post: "/admin/order/ack/update"
+			patch: "/admin/orders/{store}/{trans_id}/ack/update"
 			body: "*"
 		};
 	};

@@ -10,6 +10,4 @@ enum AccountAdminErrorReason {
 	option (errors.default_code) = 500;
 
 	ACCOUNT_ADMIN_ERROR_REASON_UNSPECIFIED = 0 [(errors.code) = 500];
-	ACCOUNT_ADMIN_ERROR_REASON_SERVER = 1 [(errors.code) = 500];
-	ACCOUNT_ADMIN_ERROR_REASON_SERVER_ID = 2 [(errors.code) = 401];
 }
