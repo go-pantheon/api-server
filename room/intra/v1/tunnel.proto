@@ -17,6 +17,7 @@ message TunnelRequest {
   int64 obj = 3; // Module object ID, according to the business agreement to pass the corresponding object ID
   int32 mod = 4; // Module ID, globally unique
   int32 seq = 5; // Module message ID, unique within the module
+  int32 index = 6; // Index of the message in the stream
 }
 
 message TunnelResponse {
@@ -25,4 +26,5 @@ message TunnelResponse {
   int64 obj = 3; // Module object ID, according to the business agreement to pass the corresponding object ID
   int32 mod = 4; // Module ID, globally unique
   int32 seq = 5; // Module message ID, unique within the module
+  int32 index = 6; // Index of the message in the stream, same as the request
 }
