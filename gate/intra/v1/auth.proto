@@ -7,13 +7,17 @@ option go_package = "api/server/gate/intra/v1;intrav1";
 // only for server use
 // The client will receive []byte(AuthToken) data from the /login interface of the Account service, and then carry it in the handshake message
 message AuthToken {
-  int32 location = 1; // Location
-  int64 account_id = 2; // Account ID
-  string rand = 3; // random string for replay attack prevention
-  int64 timeout = 4; // timeout (unix timestamp)
-  bool unencrypted = 5; // Whether the token is unencrypted, default is false
-  string color = 6; // Color for route distribution
+  string rand = 1; // random string for replay attack prevention
+  string color = 2; // Color for route distribution
+
+  int64 account_id = 3; // Account ID
+  int64 server_id = 4; // Server ID
+  int64 timeout = 5; // timeout (unix timestamp)
+
+  int32 location = 6; // Location
   OnlineStatus status = 7; // Online status
+
+  bool unencrypted = 8; // Whether the token is unencrypted, default is false
 }
 
 enum OnlineStatus {
