@@ -19,7 +19,7 @@ message TunnelRequest {
   int32 seq = 5; // Module message ID, unique within the module
   int32 index = 6; // Index of the message in the stream
 
-  int32 stream_id = 7; // Stream ID, default 0 means no stream
+  int32 conn_id = 7; // Connection ID, default 0 means only used in raw KCP Connection, otherwise it is the stream ID
 
   int32 frag_id = 8; // Fragment ID, default 0 means no fragment. If frag_id is not 0, the data is a fragment of the message with the same frag_id.
   int32 frag_count = 9; // Fragment Count, the number of fragments in the same frag_id
@@ -34,7 +34,7 @@ message TunnelResponse {
   int32 seq = 5; // Module message ID, unique within the module
   int32 index = 6; // Index of the message in the stream, same as the request
 
-  int32 stream_id = 7; // Stream ID, default 0 means no stream
+  int32 conn_id = 7;  // Connection ID, default 0 means only used in raw KCP Connection, otherwise it is the stream ID
 
   int32 frag_id = 8; // Fragment ID, default 0 means no fragment. If frag_id is not 0, the data is a fragment of the message with the same frag_id.
   int32 frag_count = 9; // Fragment Count, the number of fragments in the same frag_id
