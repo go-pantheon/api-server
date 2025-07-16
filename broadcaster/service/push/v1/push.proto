@@ -1,12 +1,12 @@
 syntax = "proto3";
 
-package gate.service.push.v1;
+package broadcaster.service.push.v1;
 
 import "google/api/annotations.proto";
 
-option go_package = "api/server/gate/service/push/v1;servicev1";
+option go_package = "api/server/broadcaster/service/push/v1;servicev1";
 
-// TCP Gate service
+// Broadcaster service
 // Open to the server cluster
 // Provide HTTP and gRPC interfaces
 service PushService {
