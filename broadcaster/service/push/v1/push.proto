@@ -31,30 +31,47 @@ service PushService {
 }
 
 message PushRequest {
-  int64 uid = 1;
-  repeated PushBody bodies = 2;
+  repeated PushBody bodies = 1;
+  string color = 2;
+  int64 sid = 3;
+  int64 uid = 4;
 }
 
 message PushResponse {
+  bool pushed = 1;
 }
 
 message MulticastRequest {
-  repeated int64 uid = 1;
-  repeated PushBody bodies = 2;
+  repeated PushBody bodies = 1;
+  repeated int64 uids = 2;
+  string color = 3;
 }
 
 message MulticastResponse {
+  repeated int64 pushed_uids = 1;
 }
 
 message BroadcastRequest {
   repeated PushBody bodies = 1;
+  string color = 2;
+  int64 sid = 3;
 }
+
 message BroadcastResponse {
 }
 
+message PushMessage {
+  repeated PushBody bodies = 1;
+  repeated int64 uids = 2;
+  bool broadcast = 3;
+  string color = 4;
+  int64 sid = 5;
+}
+
 message PushBody {
-  bytes data = 1; // Message body proto bytes array
-  int64 obj = 2; // Object ID, according to the business agreement
-  int32 mod = 3; // Module ID, globally unique
-  int32 seq = 4; // Message ID within the module, unique within the module
+  bytes data = 1; // Serialized bytes of the cs/sc protocol in the message
+  uint64 data_version = 2; // Data version number
+  int64 obj = 3; // Module object ID, according to the business agreement to pass the corresponding object ID
+  int32 mod = 4; // Module ID, globally unique
+  int32 seq = 5; // Module message ID, unique within the module
 }
